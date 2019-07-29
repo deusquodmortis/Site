@@ -1,0 +1,44 @@
+﻿@model IEnumerable<TestSite.Entity.Category>
+@{
+    var selectedCategory = Url.RequestContext.RouteData.Values["id"];
+}
+
+<div class="list-group">
+    <a href="/home/list" class="list-group-item list-group-item-action" style="font-size:20px;font-family:'Times New Roman';">
+        Tüm Kategoriler <i class="fas fa-bars float-right" style="margin-top:8px"></i>
+    </a>
+    @foreach (var item in Model)
+    {
+        if (selectedCategory != null)
+        {
+            if (item.Id == int.Parse(selectedCategory.ToString()))
+            {
+                //seçtiğimiz kategori ile route id eşit oluyor.
+                <a href="/home/list/@item.Id" class="list-group-item active" style="font-size:20px; font-family:'Times New Roman'">
+
+                    @item.Name <i class="fas fa-genderless float-right"></i>
+
+                </a>
+            }
+            else
+            {
+                <a href="/home/list/@item.Id" class="list-group-item list-group-item-action" style="font-size:20px; font-family:'Times New Roman'">
+
+                    @item.Name <i class="fas fa-genderless float-right"></i>
+
+                </a>
+            }
+        }
+        else
+        {
+            <a href="/home/list/@item.Id" class="list-group-item list-group-item-action" style="font-size:20px; font-family:'Times New Roman'">
+
+                @item.Name <i class="fas fa-genderless float-right"></i>
+
+            </a>
+        }
+
+    }
+
+</div>
+

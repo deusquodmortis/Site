@@ -1,0 +1,21 @@
+﻿@using TestSite.Models;
+@model IEnumerable<ProductModel>
+<div class="row">
+
+    @foreach (var urun in Model)
+    {<div class="col-md-4">
+         <div class="card card-img mr-4 mb-4">
+             <div class="card-img" style="background-image:url(/Upload/@urun.Image)"></div>
+             @*<img src="~/Upload/@urun.Image" class="card-img-top img-fluid" style="" alt="@urun.Name">*@
+             <div class="card-body">
+                 <h5 class="card-title"><a href="/Home/Details/@urun.Id">@urun.Name</a></h5>
+                 <p class="card-text">@urun.Description</p>
+             </div>
+             <div class="card-footer">
+                 <small class="text-muted">$ @urun.Price </small>
+                 <a href="/home/details/@urun.Id" class="btn btn-outline-dark btn-sm float-right">İncele</a>
+             </div>
+         </div>
+        </div>
+    }
+</div>

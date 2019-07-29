@@ -1,0 +1,81 @@
+﻿@using TestSite.Entity
+@model TestSite.Models.OrderDetailsModel
+@{
+    ViewBag.Title = "Details";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h2 style="text-align: center"> Siparis Detayları</h2>
+            <hr />
+            <dl class="row">
+                <dt class="col-sm-3">Order Status</dt>
+                <dd class="col-sm-9">
+                    @if (Model.OrderState == EnumOrderState.Waiting)
+                    {
+                        <span class="badge badge-pill badge-warning">@Model.OrderState</span>
+                    }
+                    else
+                    {
+                        <span class="badge badge-pill badge-success">@Model.OrderState</span>
+                    }
+                </dd>
+                <dt class="col-sm-3">Order Id</dt>
+                <dd class="col-sm-9">@Model.OrderId</dd>
+                <dt class="col-sm-3">Order Number</dt>
+                <dd class="col-sm-9">@Model.OrderNumber</dd>
+                <dt class="col-sm-3">Total</dt>
+                <dd class="col-sm-9"><i class="fas fa-lira-sign"></i>@Model.Total</dd>
+                <dt class="col-sm-3">Order Date</dt>
+                <dd class="col-sm-9">@Model.OrderDate</dd>
+
+
+                <dt class="col-sm-3">Adres</dt>
+                <dd class="col-sm-9">
+                    @Model.AdresBasligi
+                    <hr />
+                    @Model.Adres
+                    <br />
+                    @Model.Il - @Model.Ilce
+                    <br />
+                    @Model.PostaKodu
+                </dd>
+                <dt class="col-sm-3">Products</dt>
+                <dd class="col-sm-9">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th style="width: 145px;text-align: center">Image</th>
+                                <th style="text-align: center">Product Name</th>
+                                <th style="width: 100px;text-align: center">Quantity</th>
+                                <th style="text-align: center">Price</th>
+                                <th ></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model.OrderLines)
+                            {
+
+
+                                <tr>
+                                    <td style="text-align: center">
+                                        <img src="/Upload/@item.Image" style="width: 120px;height: 70px"/>
+                                    </td>
+                                    <td style="text-align: center">@item.ProductName</td>
+                                    <td style="text-align: center">@item.Quantity</td>
+                                    <td style="text-align: center"><i class="fas fa-lira-sign"></i>@item.Price</td>
+                                    <td style="text-align: center"><a href="/home/details/@item.ProductId" class="btn btn-outline-dark btn-sm" target="_blank">Product Details</a></td>
+
+                                </tr>
+
+                            }
+                        </tbody>
+                    </table>
+                </dd>
+            </dl>
+
+        </div>
+    </div>
+</div>
+

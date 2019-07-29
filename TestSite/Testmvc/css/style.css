@@ -1,0 +1,41 @@
+.jumbotron {
+    background-image: url("../img/bg.jpg");
+    background-size: cover;
+    height: 100%;
+}
+
+.footer {
+    background-color: #f5f5f5;
+
+    left: 0;
+    bottom: 0;
+    height: 5em;
+    width: 100%;
+}
+.card-img {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    height: 350px;
+}
+img.rounded-corners {
+
+    border-radius: 6px;
+
+}
+body {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    background-color: #f5f5f5;
+}
+
+.field-icon {
+    float: right;
+
+    position: relative;
+ 
+}

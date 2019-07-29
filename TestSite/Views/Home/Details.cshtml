@@ -1,0 +1,68 @@
+﻿@using TestSite.Entity;
+@model Product
+@{
+    ViewBag.Title = "Details";
+}
+    <div class="container">
+    <div class="row">
+
+        <div class="col-md-6">
+            @*Resmi cardda yaptığın gibi responsive yap hep aynı boyutta kalsın!!!*@
+            <div class="card-img" style="background-image:url(/Upload/@Model.Image)">
+            </div>
+            </div>
+            <div class="col-md-6">
+                <div class="container">
+                    <strong>
+                        <p>@Model.Name</p>
+                    </strong>
+                    <p>Info here</p>
+                    <p>@Model.Description</p>
+                    <p>.</p>
+                    <p>.</p>
+                    <p>.</p>
+                    <p>.</p>
+                </div>
+                <div class="container mb-1" style="margin-top: -0.5em">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                    <i class="far fa-star"></i>
+                    <a href="#" style="margin-left: 1em" class="badge badge-pill badge-primary">23</a>
+                </div>
+
+                @using (Html.BeginForm("AddToCart","Cart"))
+                {
+                    @Html.HiddenFor(i=>i.Id)
+                    <button type="submit" class="btn btn-outline-dark">
+                        <i style="font-size: 1.9em"><i class="fas fa-lira-sign"></i>@Model.Price </i>
+                        <i class="fas fa-tag fa-2x"></i></button>
+                }
+
+            </div>
+
+        </div>
+
+        <div class="row pt-3">
+            <div class="col-md-12">
+                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Aciklama</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Yorumlar</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Taksit Seçenekleri</a>
+                    </li>
+                </ul>
+                <div class="tab-content" id="myTabContent">
+                    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vestibulum lectus mauris ultrices eros in. Tincidunt augue interdum velit euismod in pellentesque massa placerat. Volutpat consequat mauris nunc congue nisi vitae suscipit tellus mauris. Eget est lorem ipsum dolor sit amet consectetur adipiscing. In nisl nisi scelerisque eu ultrices vitae.</div>
+                    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vestibulum lectus mauris ultrices eros in. Tincidunt augue interdum velit euismod in pellentesque massa placerat. Volutpat consequat mauris nunc congue nisi vitae suscipit tellus mauris. Eget est lorem ipsum dolor sit amet consectetur adipiscing. In nisl nisi scelerisque eu ultrices vitae.</div>
+                    <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vestibulum lectus mauris ultrices eros in. Tincidunt augue interdum velit euismod in pellentesque massa placerat. Volutpat consequat mauris nunc congue nisi vitae suscipit tellus mauris. Eget est lorem ipsum dolor sit amet consectetur adipiscing. In nisl nisi scelerisque eu ultrices vitae.</div>
+                </div>
+            </div>
+        </div>
+
+    </div>

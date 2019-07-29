@@ -1,0 +1,51 @@
+﻿@model TestSite.Entity.Product
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+    <div class="container text-center">
+        <h2>Delete <i class="far fa-trash-alt"></i></h2>
+        <hr />
+        <h3>Bak silerim emin misin ?</h3>
+        <div>
+            <hr />
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.Name)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Name)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Price)
+                </dt>
+
+                <dd>
+                   <i>$ </i> @Html.DisplayFor(model => model.Price)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Stock)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Stock)<i> pcs.</i>
+                </dd>
+
+            </dl>
+
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            @Html.ActionLink("<-- Back to List", "Index", null, new { @class = "btn btn-outline-dark btn-sm" }) |
+                <input type="submit" value="Delete" class="btn btn-outline-danger btn-sm" />
+
+            </div>
+            }
+        </div>
+    </div>
